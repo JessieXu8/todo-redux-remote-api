@@ -43,6 +43,7 @@ export default (
       };
     }
       case types.ALL:{
+        console.log(action.todo);
         return {
           todos: [...action.todo],
            status:state.status

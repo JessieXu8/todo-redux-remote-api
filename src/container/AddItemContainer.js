@@ -12,10 +12,9 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onAddItem: todo => {
-      // todoApi.add(todo,dispatch);
-      // dispatch(addItem(todo));
-        todoApi.add(todo);
-        dispatch(addItem(todo));
+      todoApi.add(todo,dispatch);
+      //   todoApi.add(todo);
+      //   dispatch(addItem(todo));
     }
   };
 };
