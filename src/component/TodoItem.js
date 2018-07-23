@@ -15,8 +15,11 @@ class TodoItem extends Component {
   }
 
   updateItem(e, viewId, content) {
+
+      const status = this.props.status
     if (e.keyCode === 13) {
-      this.props.updateItemContent(viewId, content);
+      this.props.updateItemContent(viewId, content,status);
+        //console.log(3333333)
       this.setState({ status: 'read' });
     }
   }
@@ -34,8 +37,8 @@ class TodoItem extends Component {
           <input
             type="checkbox"
             className="done-todo"
-            defaultChecked={item.status === Todo.COMPLETED}
-            onClick={e => this.toggleActive(item.viewId)}
+            defaultChecked={item.status === Todo.COMPLETED||item.status === "complete"}
+            onClick={e => this.toggleActive(item.id)}
           />
         }
         <span onDoubleClick={e => this.changeToEditable(e)}>
@@ -47,7 +50,7 @@ class TodoItem extends Component {
               className="edit-input"
               defaultValue={item.content}
               onKeyUp={e =>
-                this.updateItem(e, item.viewId, e.currentTarget.value)
+                this.updateItem(e, item.id, e.currentTarget.value)
               }
             />
           )}

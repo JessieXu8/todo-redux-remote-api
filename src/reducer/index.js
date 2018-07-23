@@ -20,19 +20,15 @@ export default (
       return {
         ...state,
         todos: state.todos.map(
-          todo => (todo.viewId === action.todo.viewId ? action.todo : todo)
+          todo => (todo.id === action.todo.id ? action.todo : todo)
         )
       };
     }
     case types.EDITITEM: {
       return {
-        ...state,
-        todos: state.todos.map(
-          todo =>
-            todo.viewId === action.todo.viewId
-              ? { ...todo, content: action.todo.content }
-              : todo
-        )
+        // ...state,
+        todos: action.todo
+        // )
       };
     }
     case types.CHANGESTATUS: {

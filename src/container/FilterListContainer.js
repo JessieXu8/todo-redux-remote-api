@@ -11,8 +11,10 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onFilterTodos: status => {
-      const todos = todoAPI.filerByStatus(status);
-      dispatch(changeStatus(todos, status));
+        todoAPI.status =status
+      const todos = todoAPI.filerByStatus(status,dispatch);
+
+      // dispatch(changeStatus(todos, status));
     }
   };
 };

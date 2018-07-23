@@ -11,16 +11,18 @@ const mapStateToProps = (state, ownProps) => {
 };
 const mapDispatchToProps = (dispatch, ownProps) => {
     return {
-        onToggleTodo: (viewId, status) => {
-            const todo = todoAPI.toggleActive(viewId);
-            const todos = todoAPI.filerByStatus(status);
-            dispatch(checkItem(todo));
-            dispatch(changeStatus(todos, status));
+        onToggleTodo: (item, status) => {
+            // const todo = todoAPI.toggleActive(viewId);
+            // const todos = todoAPI.filerByStatus(status,dispatch);
+            // dispatch(checkItem(todo));
+            // dispatch(changeStatus(todos, status));
+            todoAPI.toggleActive(item,dispatch,status);
         },
-        onUpdateTodo: (viewId, content) => {
-            const todo = todoAPI.updateItemContent(viewId, content);
-            console.log(viewId);
-            dispatch(editItem(todo));
+        onUpdateTodo: (viewId, content,status) => {
+            // const todo = todoAPI.updateItemContent(viewId, content);
+            // console.log(viewId);
+            // dispatch(editItem(todo));
+            todoAPI.updateItemContent(viewId, content,dispatch,status);
         },
         onGetAll: () => {
             todoAPI.getAll(list=>dispatch(getAllTodos(list)));

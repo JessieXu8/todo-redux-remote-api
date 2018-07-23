@@ -17,12 +17,12 @@ export default class TodoList extends Component {
             return this.props.todos.map(item => (
               <TodoItem
                 item={item}
-                key={item.viewId}
+                key={item.id}
                 toggleActiveHandler={viewId =>
-                  this.props.onToggleTodo(viewId, this.props.status)
+                  this.props.onToggleTodo(item, this.props.status)
                 }
-                updateItemContent={(viewId, content) =>
-                  this.props.onUpdateTodo(viewId, content)
+                updateItemContent={(viewId, content,status) =>
+                  this.props.onUpdateTodo(viewId, content,status)
                 }
               />
             ));
